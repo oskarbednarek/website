@@ -12,38 +12,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Loading screen styles */
-    #loading-screen {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .loader {
-      border: 16px solid #f3f3f3;
-      border-radius: 50%;
-      border-top: 16px solid #3498db;
-      width: 120px;
-      height: 120px;
-      animation: spin 2s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Blur effect for the rest of the page */
-    .blur {
-      filter: blur(5px);
-    }
-  </style>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </head>
 <body>
   <!-- Loading screen -->
@@ -133,24 +103,5 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Custom JS -->
-  <script src="script.js"></script>
-  <script>
-    document.getElementById('about-link').addEventListener('click', function(event) {
-      event.preventDefault();
-      Swal.fire({
-        title: 'About Me',
-        text: 'Hello, I am Oskar Bednarek and I am from Poland, I am currently studying Informatics at Politechnika Śląska. If you are interested in any of my items from portfolio, contact me on any platform from Contact tab.',
-        icon: 'info',
-        confirmButtonText: 'Close'
-      });
-    });
-
-    // Hide loading screen once the page has fully loaded
-    window.addEventListener('load', function() {
-      document.getElementById('loading-screen').style.display = 'none';
-      document.getElementById('content').classList.remove('blur');
-    });
-  </script>
 </body>
 </html>

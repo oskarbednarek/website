@@ -26,3 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.find('.modal-body').text('This is a dynamically updated modal content.');
     });
 });
+document.getElementById('about-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    Swal.fire({
+      title: 'About Me',
+      text: 'Hello, I am Oskar Bednarek and I am from Poland, I am currently studying Informatics at Politechnika Śląska. If you are interested in any of my items from portfolio, contact me on any platform from Contact tab.',
+      icon: 'info',
+      confirmButtonText: 'Close'
+    });
+  });
+  window.addEventListener('load', function() {
+    document.getElementById('loading-screen').style.display = 'none';
+    document.getElementById('content').classList.remove('blur');
+  });

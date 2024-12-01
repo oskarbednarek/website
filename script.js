@@ -45,3 +45,15 @@ document.getElementById('about-link').addEventListener('click', function(event) 
     document.getElementById('loading-screen').style.display = 'none';
     document.getElementById('content').classList.remove('blur');
   });
+
+  let range = document.querySelector('input')
+let lead = document.querySelector('.lead')
+
+range.addEventListener('change', function(e) {
+  let val = e.currentTarget.value;
+  p.style.fontSize = val + 'px'
+})
+
+document.getElementById('menu-button').addEventListener('click', function() {
+    document.querySelector('.md\\:flex').classList.toggle('hidden');
+  });

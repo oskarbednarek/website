@@ -11,6 +11,10 @@ function huzz(){
     }
     else{
         huzz = document.getElementById("huzz").value;
+        huzz = huzz.split("");
+        //now we delete last one
+        huzz.pop();
+        huzz = huzz.join("");
         huzz = huzz + "huzz";
         document.getElementById("result").innerHTML = huzz;
     }

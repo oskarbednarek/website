@@ -9,13 +9,15 @@
 <body>
     <div class="header">
         <h1>Guess the word!</h1>
-        <button class="info" onclick="info()">info</button>
+        <button class="info" onclick="info()" style="width: auto;">info</button>
+        <button onclick="newGame()" class="mobile-only">
+            <img src="https://img.icons8.com/ios-filled/50/000000/restart.png" alt="New Game" style="width: 16px;">
+        </button>
     </div>
     <div class="container">
         <div id="grid" class="grid"></div>
         <input type="text" id="guessInput" maxlength="5" /> <br>
         <button onclick="submitGuess()" class="hidden">Submit</button>
-        <button onclick="newGame()" class="hidden">New Game</button>
     </div>
     
     <script>
@@ -130,8 +132,8 @@
                             cell.style.backgroundColor = 'gray';
                             cell.style.color = 'white';
                         }
-                        cell.style.transform = 'rotateY(360deg)';
                         cell.style.transition = 'transform 0.5s';
+                        cell.style.transform = 'rotateY(360deg)';
                     }, i * 300);
                 }
             }
@@ -192,9 +194,7 @@
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
-                setTimeout(() => {
-                    newGame();
-                }, 1500); // Delay before starting a new game
+                newGame();
             }
         });
 
@@ -202,5 +202,9 @@
             document.getElementById('guessInput').focus();
         });
     </script>
+    <footer>
+        <p>&copy; 2023 ozee.me</p>
+    </footer>
+ </p>   
 </body>
 </html>

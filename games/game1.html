@@ -9,15 +9,36 @@
 <body>
     <div class="header">
         <h1>Guess the word!</h1>
+        <button class="info" onclick="info()">info</button>
     </div>
     <div class="container">
         <div id="grid" class="grid"></div>
-        <input type="text" id="guessInput" maxlength="5" />
-        <button onclick="submitGuess()">Submit</button>
-        <button onclick="newGame()">New Game</button>
+        <input type="text" id="guessInput" maxlength="5" /> <br>
+        <button onclick="submitGuess()" class="hidden">Submit</button>
+        <button onclick="newGame()" class="hidden">New Game</button>
     </div>
     
     <script>
+        function info(){
+                const info = document.createElement('div');
+                info.style.position = 'fixed';
+                info.style.top = 0;
+                info.style.left = 0;
+                info.style.width = '100%';
+                info.style.height = '100%';
+                info.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                info.style.display = 'flex';
+                info.style.justifyContent = 'center';
+                info.style.alignItems = 'center';
+                info.style.zIndex = 1000;
+                info.innerHTML = `
+                    <div style="background-color: white; padding: 20px; border-radius: 10px; text-align: center;">
+                        <h2>Guess the word, press ENTER to submit the guess<br>and ESCAPE to start a new game!</h2>
+                        <button onclick="document.body.removeChild(this.parentElement.parentElement)">Close</button>
+                    </div>
+                `;
+                document.body.appendChild(info);
+            }
         // Wordle game
         // Random word generator
         async function getRandomWord() {
@@ -132,7 +153,17 @@
             }
             initializeGame();
         }
-
+        //now lets make it possible to play the game with the keyboard
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                submitGuess();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                newGame();
+            }
+        });
     </script>
 </body>
 </html>

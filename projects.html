@@ -1,0 +1,37 @@
+<!-- Main page of my website -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects page</title>
+    <script src="main-anim.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Fun projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        <script>
+            function openGame(gameUrl) {
+                window.open(gameUrl, '_blank', 'width=800,height=600');
+            }
+        </script>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <li><a href="#" onclick="openGame('games/game1.html')">Game 1</a></li>
+            <li><a href="#" onclick="openGame('games/game2.html')">Game 2</a></li>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 My Website</p>
+    </footer>
+</body>
+</html>

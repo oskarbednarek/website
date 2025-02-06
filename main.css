@@ -17,6 +17,10 @@ header {
     transform: translateY(-100%);
     animation: slideDown 0.5s forwards;
 }
+a {
+    color: #333;
+    text-decoration: none;
+}
 nav ul {
     list-style: none;
     padding: 0;

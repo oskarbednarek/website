@@ -8,7 +8,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    flex-direction: column;
 }
+
 .header {
     text-align: center;
     margin-bottom: 20px;
@@ -19,6 +21,15 @@ body {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.container {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 60px; /* Add padding to account for the header height */
+}
+
 button {
     background-color: #28a745;
     color: white;
@@ -28,13 +39,14 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    /* make it in the middle of input above, add a space between those two*/
     margin-bottom: 10px;    
 }
+
 .hidden {
     display: none;
 }
-.info{
+
+.info {
     background-color: #007bff;
     color: white;
     border: none;
@@ -43,15 +55,17 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    /* make it in the middle of input above, add a space between those two*/
     margin-bottom: 10px;    
 }
+
 button:hover {
     background-color: #218838;
 }
+
 button:active {
     background-color: #1e7e34;
 }
+
 input {
     padding: 10px;
     font-size: 16px;
@@ -61,12 +75,6 @@ input {
     margin-bottom: 10px;
 }
 
-.container {
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 50px);
@@ -74,6 +82,7 @@ input {
     margin-bottom: 20px;
     justify-content: center;
 }
+
 .cell {
     width: 50px;
     height: 50px;
@@ -83,22 +92,24 @@ input {
     align-items: center;
     font-size: 24px;
     background-color: white;
+    transition: background-color 0.5s, transform 0.3s;
 }
+
 .correct {
     background-color: green;
     color: white;
 }
+
 .present {
     background-color: yellow;
     color: black;
 }
+
 .absent {
     background-color: gray;
     color: white;
 }
-.cell {
-    transition: background-color 0.5s, transform 0.3s;
-}
+
 @media (max-width: 600px) {
     .grid {
         grid-template-columns: repeat(5, 40px);
@@ -115,8 +126,10 @@ input {
     }
     .container {
         padding: 10px;
+        padding-top: 60px; /* Add padding to account for the header height */
     }
 }
+
 @media (max-width: 400px) {
     .grid {
         grid-template-columns: repeat(5, 30px);
@@ -133,6 +146,7 @@ input {
     }
     .container {
         padding: 5px;
+        padding-top: 60px; /* Add padding to account for the header height */
     }
 }
 

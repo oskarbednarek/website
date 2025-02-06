@@ -4,62 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle Game</title>
-    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-        .container {
-            text-align: center;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(5, 50px);
-            gap: 5px;
-            margin-bottom: 20px;
-        }
-        .cell {
-            width: 50px;
-            height: 50px;
-            border: 1px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            background-color: white;
-        }
-        .correct {
-            background-color: green;
-            color: white;
-        }
-        .present {
-            background-color: yellow;
-            color: black;
-        }
-        .absent {
-            background-color: gray;
-            color: white;
-        }
-        /* animations for our worlde! */
-        .cell {
-            transition: background-color 0.5s;
-        }
-
-    </style>
+    <link rel="stylesheet" href="wordle.css">
 </head>
 <body>
+    <div class="header">
+        <h1>Guess the word!</h1>
+    </div>
     <div class="container">
         <div id="grid" class="grid"></div>
         <input type="text" id="guessInput" maxlength="5" />
         <button onclick="submitGuess()">Submit</button>
         <button onclick="newGame()">New Game</button>
     </div>
-
+    
     <script>
         // Wordle game
         // Random word generator
@@ -109,21 +66,56 @@
                 }
             }
 
+            function animateCells(){
+                for (let i = 0; i < 5; i++) {
+                    const cell = document.getElementById(`cell-${currentRow}-${i}`);
+                    setTimeout(() => {
+                        if (cell.classList.contains('correct')) {
+                            cell.style.backgroundColor = 'green';
+                            cell.style.color = 'white';
+                        } else if (cell.classList.contains('present')) {
+                            cell.style.backgroundColor = 'yellow';
+                            cell.style.color = 'black';
+                        } else {
+                            cell.style.backgroundColor = 'gray';
+                            cell.style.color = 'white';
+                        }
+                        cell.style.transform = 'rotateY(360deg)';
+                        cell.style.transition = 'transform 0.5s';
+                    }, i * 300);
+                }
+            }
+            animateCells();
             currentRow++;
             guessInput.value = '';
             if (guess === word) {
-                //alert("Congratulations! You've guessed the word!");
-                //why alert if we can do some animations!
-                for (let i = 0; i < 5; i++) {
-                    const cell = document.getElementById('cell-5-' + i);
-                    cell.textContent = word[i];
-                    cell.classList.add('correct');
-                }
+                //alert("Congratulations! You've guessed the word!"); 
+                //instead of alert we will do a custom popup
+                const popup = document.createElement('div');
+                popup.style.position = 'fixed';
+                popup.style.top = 0;
+                popup.style.left = 0;
+                popup.style.width = '100%';
+                popup.style.height = '100%';
+                popup.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                popup.style.display = 'flex';
+                popup.style.justifyContent = 'center';
+                popup.style.alignItems = 'center';
+                popup.style.zIndex = 1000;
+                popup.innerHTML = `
+                    <div style="background-color: white; padding: 20px; border-radius: 10px; text-align: center;">
+                        <h2>Congratulations! You've guessed the word!</h2>
+                        <button onclick="document.body.removeChild(this.parentElement.parentElement)">Close</button>
+                    </div>
+                `;
+                document.body.appendChild(popup);
+                document.getElementById('guessInput').disabled = true;
             } else if (currentRow === 6) {
                 alert(`Game over! The word was ${word}`);
             }
         }
-
+            // Redundant code block removed
+        
         createGrid();
         function newGame(){
             currentRow = 0;
@@ -132,10 +124,12 @@
                     const cell = document.getElementById(`cell-${i}-${j}`);
                     cell.textContent = '';
                     cell.classList.remove('correct', 'present', 'absent');
+                    cell.style.backgroundColor = 'white';
                 }
             }
             initializeGame();
         }
+
     </script>
 </body>
 </html>

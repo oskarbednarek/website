@@ -116,7 +116,9 @@
         }
             // Redundant code block removed
         
-        createGrid();
+        document.addEventListener('DOMContentLoaded', (event) => {
+            createGrid();
+        });
         function newGame(){
             currentRow = 0;
             for (let i = 0; i < 6; i++) {
@@ -125,6 +127,7 @@
                     cell.textContent = '';
                     cell.classList.remove('correct', 'present', 'absent');
                     cell.style.backgroundColor = 'white';
+                    document.getElementById('guessInput').disabled = false;
                 }
             }
             initializeGame();

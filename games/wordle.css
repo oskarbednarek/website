@@ -5,22 +5,56 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.header{
+.header {
     text-align: center;
-    margin-bottom: 20px;
-    /* center it at the top of the site */
     position: absolute;
-    top : 0;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #218838;
+}
+button:active {
+    background-color: #1e7e34;
+}
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
 }
 .container {
     text-align: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
 }
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 50px);
     gap: 5px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 .cell {
     width: 50px;
@@ -44,7 +78,6 @@ body {
     background-color: gray;
     color: white;
 }
-/* animations for our worlde! */
 .cell {
     transition: background-color 0.5s, transform 0.3s;
 }
@@ -57,6 +90,31 @@ body {
         width: 40px;
         height: 40px;
         font-size: 20px;
+    }
+    .header {
+        font-size: 18px;
+        padding: 5px;
+    }
+    .container {
+        padding: 10px;
+    }
+}
+@media (max-width: 400px) {
+    .grid {
+        grid-template-columns: repeat(5, 30px);
+        gap: 2px;
+    }
+    .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    .header {
+        font-size: 16px;
+        padding: 5px;
+    }
+    .container {
+        padding: 5px;
     }
 }
 

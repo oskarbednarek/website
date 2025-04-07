@@ -1,0 +1,13 @@
+import './animation';
+import './background';
+import './tilt';
+import './typography';
+import './reveal';
+import './parallax';
+import './glass';
+import './preloader';
+import './AOS';
+import './scroll-progress';
+import './cursor-effect';
+import './hamburger';
+import './skills';

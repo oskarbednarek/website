@@ -66,7 +66,7 @@ npm run build
 - `skills_bars.js` - Script for skill progress visualization
 - `hamburger.js` - Mobile menu functionality
 - `theme_switch.js` - Dark/light theme toggle functionality
-- `AOS.js` - Animation implementation
+- `aos-config.js` - Animation implementation
 
 ## Contributing
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page if you want to contribute.

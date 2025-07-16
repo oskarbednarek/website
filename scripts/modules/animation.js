@@ -1,15 +1,11 @@
-// Create animation.js
-document.addEventListener('DOMContentLoaded', () => {
-    // Create base animation styles
+export function initTextAnimations() {
     const styleSheet = document.createElement('style');
     styleSheet.textContent = `
     .slide-up-element {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1.0), 
-                  transform 0.8s cubic-bezier(0.2, 0, 0, 1.0);
+      transform: translateY(25px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1), transform 0.8s cubic-bezier(0.2, 0, 0, 1);
     }
-    
     .slide-up-element.animated {
       opacity: 1;
       transform: translateY(0);
@@ -17,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
     document.head.appendChild(styleSheet);
 
-    // Apply staggered animations to text elements
-    const createStaggerAnimation = (selector, delayIncrement = 0.1) => {
+    const createStaggerAnimation = (selector, delayIncrement = 0.08) => {
         const elements = document.querySelectorAll(selector);
         elements.forEach((el, index) => {
             el.classList.add('slide-up-element');
@@ -26,21 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Create intersection observer to trigger animations
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
+                obs.unobserve(entry.target); // Animate only once
             }
         });
     }, { threshold: 0.1 });
 
-    // Apply to various sections with staggered delays
-    createStaggerAnimation('#projects h3, #projects p', 0.1);
-    createStaggerAnimation('.skills h4', 0.07);
+    // Apply staggered animations
+    createStaggerAnimation('#projects h3, #projects p');
+    createStaggerAnimation('.skills h4', 0.05);
 
-    // Observe all animation elements
     document.querySelectorAll('.slide-up-element').forEach(el => {
         observer.observe(el);
     });
-});
+}

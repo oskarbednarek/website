@@ -1,0 +1,9 @@
+[
+  {
+    "title": "SCRUM APP",
+    "technologies": ["C++", "Dear ImGui", "Desktop"],
+    "description": "A desktop project management application designed to streamline agile sprints.",
+    "image": "images/scrum_app.png",
+    "alt": "Screenshot of Scrum App interface"
+  }
+]

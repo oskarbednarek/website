@@ -1,4 +1,4 @@
-# ozee.me | Personal Portfolio
+# ozee.studio | Personal Portfolio
 
 A creative portfolio website that showcases my journey through code, music, and games. This responsive, interactive website features modern design principles and engaging user experiences.
 
